@@ -4,8 +4,9 @@ import axios from "axios";
 const Form = () => {
 
     const [form,setForm ] = useState({
-        email:"",
         name:"",
+        difficulty:"",
+        duration:"",
         phone:"",
         duración:"",
         temporada:""
@@ -39,7 +40,7 @@ const Form = () => {
 
     const submitHandler = (event) => {
         event.preventDefault()
-        axios.post("aca va el http://.....", form)
+        axios.post("http://localhost:3001/countries/create", form)
         .then(res=>alert(res))
         .catch(err=>alert(err))
     }
@@ -47,18 +48,12 @@ const Form = () => {
     return (
     <form onSubmit={submitHandler}>
         <div>
-            <label>Email: </label>
-            <input type="text" value={form.email} onChange={changeHandler} name="email" />
-            {errors.email && <span>{errors.email}</span>}
-        </div>
-
-        <div>
-            <label>Name: </label>
+            <label>Nombre: </label>
             <input type="text" value={form.name} onChange={changeHandler} name="name" />
         </div>
 
         <div>
-            <label>Phone: </label>
+            <label>Dificultad: </label>
             <input type="text" value={form.phone} onChange={changeHandler} name="phone" />
         </div>
 
@@ -71,6 +66,13 @@ const Form = () => {
             <label>Temporada: </label>
             <input type="text" value={form.temporada} onChange={changeHandler} name="temporada" />
         </div>
+
+        {/* <div>
+            <label>Email: </label>
+            <input type="text" value={form.email} onChange={changeHandler} name="email" />
+            {errors.email && <span>{errors.email}</span>}
+        </div> */}
+
         <button type="submit">SUBMIT</button>
     </form>
     )

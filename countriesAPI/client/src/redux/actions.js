@@ -1,24 +1,26 @@
 import axios from "axios";
 
-export const GET_USERS = "GET_USERS";
+export const GET_COUNTRIES = "GET_COUNTRIES";
+export const GET_COUNTRY = "GET_COUNTRY";
 
-export const getUsers = () => {
+export const getCountries = () => {
     return async function (dispatch) {
         const apiData = await axios.get(
-            "https://jsonplaceholder.typicode.com/users"
+            'http://localhost:3001/countries'
         );
-        const users = apiData.data;
-        dispatch({type: GET_USERS, payload: users});
+        const countries = apiData.data;
+        dispatch({type: GET_COUNTRIES, payload: countries});
     };
 };
 
-export const getUser = (id) => {
+export const getCountry = (name) => {
     return async function (dispatch) {
         const apiData = await axios.get(
-            `https://jsonplaceholder.typicode.com/users/${id}`
+            `http://localhost:3001/countries/${name}`
+            
         );
-        const user = apiData.data;
-        dispatch({type: "GET_USER", payload: user});
+        const country = apiData.data;
+        dispatch({type: "GET_COUNTRY", payload: country});
     };
 };
 

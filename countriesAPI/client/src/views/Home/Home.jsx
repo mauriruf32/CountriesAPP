@@ -1,14 +1,14 @@
 import Cards from "../../components/Cards/Cards";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getUsers } from "../../redux/actions";
+import { getCountries } from "../../redux/actions";
 
 const Home = () => {
 
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        dispatch(getUsers());
+        dispatch(getCountries());
     },[dispatch])
 
     return (

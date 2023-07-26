@@ -1,9 +1,9 @@
 const Card = (props) =>{
     return(
         <div>
-        <p>Nombre:{props.name}</p>
-        <p>Telefono:{props.phone}</p>
-        <p>Email:{props.email}</p>
+        <p>bander:{props.flag}</p>
+         <p>Nombre:{props.name}</p>
+        <p>Email:{props.continent}</p>
         </div>
     )
 }

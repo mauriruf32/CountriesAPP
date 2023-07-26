@@ -4,16 +4,16 @@ import  { useSelector } from "react-redux"
 const Cards = () =>{
 
 
-    const users = useSelector(state=>state.users)
+    const countries = useSelector(state=>state.countries)
 
     return(
         <div>
-            {users.map(user=>{
+            {countries.map(country=>{
                 return <Card 
-                id={user.id}
-                name={user.name}
-                phone={user.phone}
-                email={user.email}
+                id={country.id}
+                name={country.name}
+                flag={country.flag}
+                continent={country.continent}
                 />
             })}
         </div>
