@@ -1,11 +1,15 @@
+import style from "./Card.module.css";
+
 const Card = (props) =>{
     return(
-        <div>
-        <p>bander:{props.flag}</p>
+        <div className={style.card}>
+        <img className={style.cardImage} src={props.flag} alt="Bandera:" />
+        {/* <img>Bandera:{props.flag} alt=""</img> */}
          <p>Nombre:{props.name}</p>
-        <p>Email:{props.continent}</p>
+        <p>Continente:{props.continent}</p>
         </div>
     )
 }
+
 
 export default Card;

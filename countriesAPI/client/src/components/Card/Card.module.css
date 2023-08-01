@@ -1,0 +1,12 @@
+.container{
+    border:1px, solid, black;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+
+}
+
+.cardImage {
+    border-radius: 15px;
+    max-width: 100%;
+  }

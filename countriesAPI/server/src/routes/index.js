@@ -1,18 +1,12 @@
 const { Router } = require("express");
-const router = Router();
+const countriesRouter = require("./countriesRouter");
+const activitiesRouter = require("./activitiesRouter");
 
-module.exports = router;
+const mainRouter = Router();
 
-const getActivities = require("../controllers/getActivities");
-const getCountries = require("../controllers/getCountries");
-const postActivities = require("../controllers/postActivities");
-const getCountriesByName = require("../controllers/getCountriesByName");
-const getCountriesById = require("../controllers/getCountriesById");
-const { Activity, Country, conn } = require("../db");
+mainRouter.use("/countries", countriesRouter);
+mainRouter.use("/activities", activitiesRouter);
 
 
-router.get("/countries/:idPais", getCountriesById);
-router.get("/activities", getActivities);
-router.get("/countries", getCountries);
-router.get("/countries/name", getCountriesByName);
-router.post("/activities", postActivities);
+
+module.exports = mainRouter;
