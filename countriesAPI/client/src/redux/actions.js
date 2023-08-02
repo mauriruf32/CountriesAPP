@@ -9,16 +9,19 @@ export function getCountries(){
         return dispatch ({
             type: "GET_COUNTRIES",
             payload: response.data
-        })
-    }
+        });
+    };
 }
 
-export const getCountryById = (id) => {
+export function getCountryById(id){
     return async function (dispatch) {
         const response = await axios.get(
             `http://localhost:3001/countries/${id}`
         );
-        dispatch({type: "GET_COUNTRY_BY_ID", payload: response.data});
+        return dispatch({
+            type: "GET_COUNTRY_BY_ID", 
+            payload: response.data
+        });
     };
-};
+}
 
