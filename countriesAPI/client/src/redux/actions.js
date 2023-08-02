@@ -1,26 +1,24 @@
 import axios from "axios";
 
 export const GET_COUNTRIES = "GET_COUNTRIES";
-export const GET_COUNTRY = "GET_COUNTRY";
+export const GET_COUNTRY_BY_ID = "GET_COUNTRY_BY_ID";
 
-export const getCountries = () => {
-    return async function (dispatch) {
-        const apiData = await axios.get(
-            'http://localhost:3001/countries'
-        );
-        const countries = apiData.data;
-        dispatch({type: GET_COUNTRIES, payload: countries});
-    };
-};
+export function getCountries(){
+    return async function(dispatch){
+        const response = await axios.get('http://localhost:3001/countries');
+        return dispatch ({
+            type: "GET_COUNTRIES",
+            payload: response.data
+        })
+    }
+}
 
-export const getCountry = (name) => {
+export const getCountryById = (id) => {
     return async function (dispatch) {
-        const apiData = await axios.get(
-            `http://localhost:3001/countries?name=` + name
-            
+        const response = await axios.get(
+            `http://localhost:3001/countries/${id}`
         );
-        const country = apiData.data;
-        dispatch({type: "GET_COUNTRY", payload: country});
+        dispatch({type: "GET_COUNTRY_BY_ID", payload: response.data});
     };
 };
 

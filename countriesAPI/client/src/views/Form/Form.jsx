@@ -3,18 +3,20 @@ import axios from "axios";
 
 const Form = () => {
 
-    const [form, setForm ] = useState({
+    const [form,setForm ] = useState({
+        email:"",
         name:"",
-        difficulty:"",
-        duration:"",
-        season:""
+        phone:"",
+        duración:"",
+        temporada:""
     })
 
     const [errors, setErrors] = useState({
+        email:"",
         name:"",
-        difficulty:"",
-        duration:"",
-        season:""
+        phone:"",
+        duración:"",
+        temporada:""
     })
 
     const changeHandler = (event) => {
@@ -27,25 +29,17 @@ const Form = () => {
     }
 
     const validate = (form) => {
-        if (form.name.length > 20) {
-            setErrors({...errors,name:'Menos de 35 caracteres'})
+        if ( /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(form.email)) {
+            setErrors({...errors,email:""})
+        } else {
+            setErrors({...errors,email:"Email incorrecto Bitch"})
         }
-        if (/.*\d+.*/.test(form.name)) {
-            setErrors({...errors,name:'El nombre no puede tener numeros'})
-        }
-        // if (form.nombre.length > 20) {
-        //     setErrors({...errors,nombre:'Menos de 35 caracteres'})
-        // }
-        if (form.duration > 12) {
-            setErrors({...errors,duration:'La actividad debe durar menos de 12 horas'})
-        }
-        
-
+        if (form.email==="") setErrors({...errors,email:"Email vacio"}) 
     } 
 
     const submitHandler = (event) => {
         event.preventDefault()
-        axios.post("http://localhost:3001/activities/create", form)
+        axios.post("aca va el http://.....", form)
         .then(res=>alert(res))
         .catch(err=>alert(err))
     }
@@ -53,34 +47,31 @@ const Form = () => {
     return (
     <form onSubmit={submitHandler}>
         <div>
-            <label>Nombre: </label>
-            <input type="text" value={form.name} onChange={changeHandler} name="name" />
-            {errors.name && <span>{errors.name}</span>}
+            <label>Email: </label>
+            <input type="text" value={form.email} onChange={changeHandler} name="email" />
+            {errors.email && <span>{errors.email}</span>}
         </div>
 
         <div>
-            <label>Dificultad: </label>
-            <input type="text" value={form.difficulty} onChange={changeHandler} name="difficulty" />
+            <label>Name: </label>
+            <input type="text" value={form.name} onChange={changeHandler} name="name" />
+        </div>
+
+        <div>
+            <label>Phone: </label>
+            <input type="text" value={form.phone} onChange={changeHandler} name="phone" />
         </div>
 
         <div>
             <label>Duración: </label>
-            <input type="text" value={form.duration} onChange={changeHandler} name="duration" />
-            <span>{errors.duration}</span>
+            <input type="text" value={form.duración} onChange={changeHandler} name="duración" />
         </div>
 
         <div>
             <label>Temporada: </label>
-            <input type="text" value={form.season} onChange={changeHandler} name="season" />
+            <input type="text" value={form.temporada} onChange={changeHandler} name="temporada" />
         </div>
-
-        {/* <div>
-            <label>Email: </label>
-            <input type="text" value={form.email} onChange={changeHandler} name="email" />
-            {errors.email && <span>{errors.email}</span>}
-        </div> */}
-
-        <button type="submit">Crear Actividad</button>
+        <button type="submit">SUBMIT</button>
     </form>
     )
 }

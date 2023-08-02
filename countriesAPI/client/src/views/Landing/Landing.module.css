@@ -6,3 +6,29 @@ body{
     background-repeat: no-repeat;
     background-position:center;
 }
+
+.container{
+    margin-top: 50px;
+}
+
+.title{
+    font-size: 80px;
+    color: rgb(255, 255, 255);
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+}
+
+/* .texto{
+    margin-top: 60px;
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+} */
+
+.boton{
+    margin-top: 50px;
+    border: 1px solid black;
+    transform: scale(1.8);
+    height: auto;
+    padding: 4px 4px;
+    margin-inline: 18px;
+}
