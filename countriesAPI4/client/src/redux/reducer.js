@@ -25,10 +25,15 @@ const rootReducer = (state = initialState, action) => {
 
         case ORDER:
             const orderCountries = state.countries.sort((x,y) => {
-                if(action.payload === 'A'){
-                    return x.population - y.population;
-                } else {
-                    return y.population - x.population;
+                switch (action.payload){
+                    case "alphabetA":
+                        return x.name.localeCompare(y.name);
+                    case "alphabetZ":
+                        return y.name.localeCompare(x.name);
+                    case "lowerPopulation":
+                        return x.population - y.population;
+                    case "higherPopulation":
+                        return y.population - x.population;
                 }
             })
             return {

@@ -8,7 +8,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 const Home = () => {
     const dispatch = useDispatch();
     const countries =  useSelector((state) => state.countries);
-    const [filtered, setFiltered] = useState([...countries]);
+    const [filtered, setFiltered] = useState(countries);
     const [searchString, setSearchString] = useState("");
 
     const handleChange = (e) => {
@@ -44,8 +44,10 @@ const Home = () => {
             <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
             {/* <SelectBox/> */}
             <select name="order" onChange={handleOrder} >
-             <option value="A">Ascendent</option>
-             <option value="D">Descendent</option>
+             <option value="alphabetA">Nombres (A-Z)</option>
+             <option value="alphabetZ">Nombres (Z-A)</option>
+             <option value="higherPopulation">Mayor Población</option>
+             <option value="lowerPopulation">Menor Población</option>
             </select>
             <select name="filter" onChange={handleFilter} >
               <option value="All">All</option>
