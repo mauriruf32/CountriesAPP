@@ -1,8 +1,6 @@
 const { Country, Activity } = require('../db.js')
 const { Op } = require('sequelize');
 
-const URL = "http://localhost:5000/countries"
-
 
 const getCountriesById = async (req, res) => {
   const { id } = req.params;

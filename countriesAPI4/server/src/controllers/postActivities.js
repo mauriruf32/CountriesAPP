@@ -1,20 +1,24 @@
-const { Activity } = require("../db.js");
+const { Activity, Country } = require("../db.js");
 
 const postActivities =  async (req, res) => {
     const { name, difficulty, duration, season, countries } = req.body;
     try {
-      const activity = await Activity.create({
+      const newActivity = await Activity.create({
         name,
         difficulty,
         duration,
         season,
+        countries
       });
   
       if (countries && countries.length > 0) {
-        await activity.setCountries(countries);
+        const associatedCountries = await Country.findAll({
+          where: { id: countries},
+        });
+        await newActivity.setCountries(associatedCountries);
       }
   
-      res.status(201).json(activity);
+      res.status(201).json(newActivity);
     } catch (error) {
       res.status(500).json({ error: 'Error al crear la actividad turística.' });
     }

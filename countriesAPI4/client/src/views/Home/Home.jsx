@@ -1,6 +1,7 @@
 import { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterCountries, getCountries, orderCountries } from "../../redux/actions";
+import style from "./Home.module.css";
 import Cards from "../../components/Cards/Cards";
 import SearchBar from "../../components/SearchBar/SearchBar";
 // import SelectBox from "../../components/SelectBox/SelectBox";
@@ -35,7 +36,7 @@ const Home = () => {
 
     useEffect(()=>{
         dispatch(getCountries());
-    },[dispatch]);
+    },[]);
 
     return (
         <div>

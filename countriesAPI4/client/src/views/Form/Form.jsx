@@ -1,20 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getCountries, postActivity, getCountryById, getActivities } from "../../redux/actions";
+// import style from "./Form.module.css";
 
 const Form = () => {
+    const dispatch = useDispatch();
+    const countries = useSelector((state) => state.countries);
+    const activities = useSelector((state)=> state.activities)
 
     const [form, setForm ] = useState({
         name:"",
         difficulty:"",
         duration:"",
-        season:""
+        season: "",
+        countries: []
     })
 
     const [errors, setErrors] = useState({
         name:"",
         difficulty:"",
         duration:"",
-        season:""
+        season:"",
+        countries:[]
     })
 
     const changeHandler = (event) => {
@@ -33,14 +41,18 @@ const Form = () => {
         if (/.*\d+.*/.test(form.name)) {
             setErrors({...errors,name:'El nombre no puede tener numeros'})
         }
-        // if (form.nombre.length > 20) {
-        //     setErrors({...errors,nombre:'Menos de 35 caracteres'})
-        // }
+        if (form.difficulty > 5 || form.difficulty < 1) {
+            setErrors({...errors,difficulty:'La dificultad tiene que ser entre 1 y 5'})
+        }
         if (form.duration > 12) {
             setErrors({...errors,duration:'La actividad debe durar menos de 12 horas'})
         }
-        
-
+        if (form.season !== "Verano" || form.season !== "Invierno" || form.season !=="Primavera" || form.season !== "Otoño" ){
+            setErrors({...errors,season: 'Debes seleccionar una temporada'})
+        }
+        if (form.countries === ""){
+            setErrors({...errors,countries: 'Debes elegir al menos 1 pais'})
+        }
     } 
 
     const submitHandler = (event) => {
@@ -50,35 +62,70 @@ const Form = () => {
         .catch(err=>alert(err))
     }
 
+    useEffect(()=>{
+        dispatch(getCountries());
+        dispatch(getActivities());
+    },[]);
+
+    const changeHandler2=(e)=> {
+        var options = e.target.options;
+        var value = [];
+        for (var i = 0, l = options.length; i < l; i++) {
+          if (options[i].selected) {
+            value.push(options[i].value);
+          }
+        }
+        console.log(value);
+        return setForm({ ...form, ["countries"]: value });
+      }
+
+
     return (
     <form onSubmit={submitHandler}>
         <div>
-            <label>Nombre: </label>
+            <label>Nombre de la actividad: </label>
             <input type="text" value={form.name} onChange={changeHandler} name="name" />
             {errors.name && <span>{errors.name}</span>}
         </div>
 
         <div>
-            <label>Dificultad: </label>
+            <label>Dificultad (1 - 5): </label>
             <input type="text" value={form.difficulty} onChange={changeHandler} name="difficulty" />
+            {errors.difficulty && <span>{errors.difficulty}</span>}
         </div>
 
         <div>
-            <label>Duración: </label>
+            <label>Duración en horas: </label>
             <input type="text" value={form.duration} onChange={changeHandler} name="duration" />
-            <span>{errors.duration}</span>
+            {errors.duration && <span>{errors.duration}</span>}
         </div>
 
         <div>
             <label>Temporada: </label>
             <input type="text" value={form.season} onChange={changeHandler} name="season" />
+            {errors.season && <span>{errors.season}</span>}
         </div>
 
+        <div>
+            <label>Paises donde se realiza la actividad: </label>
+            <select type="text" value={form.countries} name="countries" onChange={changeHandler2}  multiple required>
+                  {/* <option value="">--Please choose an option--</option> */}
+                  {countries.map((country) => {
+                    return (<option key={country.id} value={country.id}>{" "} {country.name} </option> );
+                  })}
+            </select>
+            {errors.countries && <span>{errors.countries}</span>}
         {/* <div>
-            <label>Email: </label>
-            <input type="text" value={form.email} onChange={changeHandler} name="email" />
-            {errors.email && <span>{errors.email}</span>}
+            <label>Actividades</label>
+            {activities?.map((activity) => {
+                return (
+                    {activity.id}
+                )
+            }
+            )}
         </div> */}
+
+        </div>
 
         <button type="submit">Crear Actividad</button>
     </form>

@@ -1,27 +1,27 @@
-import { FILTER, GET_COUNTRIES, GET_COUNTRY_BY_ID, ORDER} from "./actions";
+import { FILTER, GET_COUNTRIES, GET_COUNTRY_BY_ID, ORDER, POST_ACTIVITY, GET_ACTIVITIES, GET_COUNTRY_BY_NAME} from "./actions";
 
 const initialState = {
     countries: [],
-    continentFilter: []
+    continentFilter: [],
+    activities: []
 };
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_COUNTRIES:
             return { ...state, 
-                countries: action.payload,
-                continentFilter:action.payload
+            countries: action.payload,
             };
+
         case GET_COUNTRY_BY_ID:
             return { ...state, 
                 countries: action.payload, 
             };
-        case FILTER:
-            const filtered = state.countries.filter(country => country.continent === action.payload)
-            return {
-                 ...state,
-                countries: action.payload === 'All' ? state.countries : filtered,
-            }; 
+
+        case GET_COUNTRY_BY_NAME:
+            return { ...state, 
+                    countries: action.payload, 
+                };
 
         case ORDER:
             const orderCountries = state.countries.sort((x,y) => {
@@ -40,10 +40,31 @@ const rootReducer = (state = initialState, action) => {
                   ...state,
                   countries: orderCountries,
                 };
-        default:
+
+        case FILTER:
+            const porContinente = state.countries.filter((country) => action.payload.includes(country.continent))
             return {
-                ...state
+                 ...state,
+                countries: porContinente,
             };
+
+        case POST_ACTIVITY:{
+            return {
+                ...state,
+                activities: [...state.activities, action.payload]
+                }
+            }
+
+        case GET_ACTIVITIES:{
+            return {
+                    ...state,
+                    activities: action.payload
+                }
+              }
+
+
+        default:
+            return state;
     }
 };
 

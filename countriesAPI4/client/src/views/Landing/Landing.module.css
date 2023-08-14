@@ -5,3 +5,42 @@ body{
     background-repeat: no-repeat;
     background-position:center;
 }
+
+.title {
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    padding: 16px 30px;
+    text-align: center;
+    top: 20%;
+    left: 33%;
+    color: white;
+    text-decoration:double;
+    text-decoration-color:blueviolet ;
+}
+
+text:hover {
+    background-color: rgba(29, 11, 121, 0.829);
+    color: white;
+  }
+  
+.button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #f1f1f1;
+    color: rgba(29, 11, 121, 0.829);
+    font-size: 16px;
+    padding: 16px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: rgba(29, 11, 121, 0.829);
+    color: white;
+  }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'; 
-import styles from "./Landing.module.css";
+import style from "./Landing.module.css";
 import { Link } from "react-router-dom";
 
 
@@ -11,15 +11,15 @@ const Landing = () => {
   };
 
   useEffect(() => {
-    document.body.classList.add(styles.container);
+    document.body.classList.add(style.container);
   }, []);
 
   return (
-    <div className={styles.conteiner}>
-        <div className={styles.title}>
-        <h1>Bienvenidos a mi Countries API</h1>
+    <div className={style.container}>
+        <div className={style.title}>
+        <h1>Mi nombre es Mauricio y sean bienvenidos a mi Countries API</h1>
         </div>
-        <button className={styles.boton} onClick={handleEnterClick}><Link to="/home">Ingresar</Link></button>
+        <button className={style.button} onClick={handleEnterClick}><Link to="/home">Ingresar</Link></button>
     </div>
   );
 };
