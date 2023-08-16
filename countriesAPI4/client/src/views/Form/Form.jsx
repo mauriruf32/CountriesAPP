@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries, postActivity, getCountryById, getActivities } from "../../redux/actions";
-// import style from "./Form.module.css";
+import style from "./Form.module.css";
 
 const Form = () => {
     const dispatch = useDispatch();
@@ -81,32 +81,33 @@ const Form = () => {
 
 
     return (
-    <form onSubmit={submitHandler}>
-        <div>
+    <form className={style.form} onSubmit={submitHandler}>
+        <h1>Crea tu propia actividad:</h1>
+        <div className={style.inputbox}>
             <label>Nombre de la actividad: </label>
             <input type="text" value={form.name} onChange={changeHandler} name="name" />
             {errors.name && <span>{errors.name}</span>}
         </div>
 
-        <div>
+        <div className={style.inputbox}>
             <label>Dificultad (1 - 5): </label>
             <input type="text" value={form.difficulty} onChange={changeHandler} name="difficulty" />
             {errors.difficulty && <span>{errors.difficulty}</span>}
         </div>
 
-        <div>
+        <div className={style.inputbox}>
             <label>Duración en horas: </label>
             <input type="text" value={form.duration} onChange={changeHandler} name="duration" />
             {errors.duration && <span>{errors.duration}</span>}
         </div>
 
-        <div>
+        <div className={style.inputbox}>
             <label>Temporada: </label>
             <input type="text" value={form.season} onChange={changeHandler} name="season" />
             {errors.season && <span>{errors.season}</span>}
         </div>
 
-        <div>
+        <div className={style.inputbox}>
             <label>Paises donde se realiza la actividad: </label>
             <select type="text" value={form.countries} name="countries" onChange={changeHandler2}  multiple required>
                   {/* <option value="">--Please choose an option--</option> */}
@@ -115,15 +116,6 @@ const Form = () => {
                   })}
             </select>
             {errors.countries && <span>{errors.countries}</span>}
-        {/* <div>
-            <label>Actividades</label>
-            {activities?.map((activity) => {
-                return (
-                    {activity.id}
-                )
-            }
-            )}
-        </div> */}
 
         </div>
 

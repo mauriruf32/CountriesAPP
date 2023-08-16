@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import styles from "./Detail.module.css";
+import style from "./Activities.module.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -10,7 +10,7 @@ const Activities = () => {
 
   useEffect(() => {
     // Realiza una solicitud GET a la ruta /activities en tu servidor
-    axios.get('/activities')
+    axios.get('http://localhost:3001/activities')
       .then((response) => {
         setActivities(response.data); // Asigna los datos de las actividades a la variable de estado
       })
@@ -21,15 +21,15 @@ const Activities = () => {
 
   return (
     <div>
-      <h2>Activities List</h2>
-      <ul>
+      <h2 className={style.title}>Lista de Actividades:</h2>
+      <ul className={style.container}>
         {activities.map((activity) => (
           <li key={activity.id}>
             <h3>{activity.name}</h3>
-            <p>Difficulty: {activity.difficulty}</p>
-            <p>Duration: {activity.duration} hours</p>
-            <p>Season: {activity.season}</p>
-            <p>Countries:</p>
+            <p>Dificultad: {activity.difficulty}</p>
+            <p>Duración: {activity.duration} horas</p>
+            <p>Temporada: {activity.season}</p>
+            <p>Paises: </p>
             <ul>
               {activity.Countries.map((country) => (
                 <li key={country.id}>{country.name}</li>

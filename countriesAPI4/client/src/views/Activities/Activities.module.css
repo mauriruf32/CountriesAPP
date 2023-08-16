@@ -1,0 +1,16 @@
+.container{
+    justify-content: center;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    height: 200px;
+}
+
+.title{
+    color: #ffffff;
+    width: 100%;
+    max-width: 400px;
+    padding: 16px 30px;
+}
