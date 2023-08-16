@@ -4,7 +4,7 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   sequelize.define('Country', {
     id: {
-      type: DataTypes.CHAR(3), //almacena datos de caracteres en un campo de longitud fija
+      type: DataTypes.CHAR(3), 
       primaryKey: true,
       allowNull: false
     },

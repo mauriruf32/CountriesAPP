@@ -10,8 +10,8 @@ export const GET_ACTIVITIES = "GET_ACTIVITIES";
 
 export function getCountries(){
     return async function(dispatch){
-        const response = await axios.get('http://localhost:3001/countries');
-        return dispatch ({
+        const response = await axios.get(`http://localhost:3001/countries`);
+         dispatch ({
             type: "GET_COUNTRIES",
             payload: response.data
         });
@@ -23,7 +23,7 @@ export function getCountryById(id){
         const response = await axios.get(
             `http://localhost:3001/countries/${id}`
         );
-        return dispatch({
+         dispatch({
             type: "GET_COUNTRY_BY_ID", 
             payload: response.data
         });
@@ -35,7 +35,7 @@ export function getCountryByName(name){
         const response = await axios.get(
             `http://localhost:3001/countries/?name=${name}`
         );
-        return dispatch({
+         dispatch({
             type: "GET_COUNTRY_BY_NAME",
             payload: response.data
         });

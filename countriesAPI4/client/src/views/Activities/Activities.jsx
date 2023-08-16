@@ -2,44 +2,43 @@ import React, { useState, useEffect } from "react";
 // import styles from "./Detail.module.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getActivities, getCountries } from "../../redux/actions";
 
-const Activities = ({Activities}) => {
-  const { id } = useParams();
-  const [activity, setActivity] = useState({});
+const Activities = () => {
+  const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    axios(`http://localhost:3001/activities/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          setActivity(data);
-        } else {
-          window.alert("No hay actividades");
-        }
-      }
-    );
-    return setActivity({});
-  }, [id]);
+    // Realiza una solicitud GET a la ruta /activities en tu servidor
+    axios.get('/activities')
+      .then((response) => {
+        setActivities(response.data); // Asigna los datos de las actividades a la variable de estado
+      })
+      .catch((error) => {
+        console.error('Error fetching activities:', error);
+      });
+  }, []);
 
   return (
-//     <div>
-//       <h1>{activity.name}</h1><h2>{activity.id}</h2>
-//       <img src="" alt="activity detail" />
-//       <div>
-//       <h2>Dificultad: {activity.difficulty}</h2>
-//       <h2>Duracion: {activity.duration}</h2>
-//       <h2>Temporada: {activity.season}</h2>
-//     </div>
-//     </div>
-<div>{myFavorites?.map(({ id, name, status, species, gender, origin, image }) => (<Card
-    key={id}
-    id={id}
-    name={name}
-    status={status}
-    species={species}
-    gender={gender}
-    origin={origin.name}
-    image={image}
-  />))}</div>
+    <div>
+      <h2>Activities List</h2>
+      <ul>
+        {activities.map((activity) => (
+          <li key={activity.id}>
+            <h3>{activity.name}</h3>
+            <p>Difficulty: {activity.difficulty}</p>
+            <p>Duration: {activity.duration} hours</p>
+            <p>Season: {activity.season}</p>
+            <p>Countries:</p>
+            <ul>
+              {activity.Countries.map((country) => (
+                <li key={country.id}>{country.name}</li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 

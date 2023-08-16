@@ -36,7 +36,7 @@ const Home = () => {
 
     useEffect(()=>{
         dispatch(getCountries());
-    },[]);
+    },[dispatch]);
 
     return (
         <div>
