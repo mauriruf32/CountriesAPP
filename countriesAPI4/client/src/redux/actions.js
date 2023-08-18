@@ -4,6 +4,7 @@ export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_COUNTRY_BY_ID = "GET_COUNTRY_BY_ID";
 export const ORDER = "ORDER";
 export const FILTER = "FILTER";
+export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const POST_ACTIVITY = "POST_ACTIVITY";
 export const GET_COUNTRY_BY_NAME = "GET_COUNTRY_BY_NAME";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
@@ -62,8 +63,14 @@ export function postActivity(data){
                 payload: response.data
             })
         }
-    }          
+    }    
 
+export function filterCountriesByActivity(activities) {
+    return{
+        type: "FILTER_BY_ACTIVITY",
+        payload: activities,
+    };
+};
 
 export function orderCountries(value) {
     return {

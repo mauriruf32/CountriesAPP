@@ -9,10 +9,9 @@ const Activities = () => {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    // Realiza una solicitud GET a la ruta /activities en tu servidor
     axios.get('http://localhost:3001/activities')
       .then((response) => {
-        setActivities(response.data); // Asigna los datos de las actividades a la variable de estado
+        setActivities(response.data); 
       })
       .catch((error) => {
         console.error('Error fetching activities:', error);

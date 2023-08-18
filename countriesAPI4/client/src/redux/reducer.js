@@ -1,4 +1,5 @@
-import { FILTER, GET_COUNTRIES, GET_COUNTRY_BY_ID, ORDER, POST_ACTIVITY, GET_ACTIVITIES, GET_COUNTRY_BY_NAME} from "./actions";
+import { FILTER, GET_COUNTRIES, GET_COUNTRY_BY_ID, ORDER, 
+    POST_ACTIVITY, GET_ACTIVITIES, GET_COUNTRY_BY_NAME, FILTER_BY_ACTIVITY} from "./actions";
 
 const initialState = {
     countries: [],
@@ -47,6 +48,21 @@ const rootReducer = (state = initialState, action) => {
                  ...state,
                 countries: porContinente,
             };
+
+        case FILTER_BY_ACTIVITY:
+            const activityFilter = 
+            action.payload !== 'all' 
+            ? state.activities.filter(activity => activity.name === action.payload) 
+            : state.activities 
+
+      let paises= activityFilter[0].countries;
+
+      let countriesAct =
+            activityFilter=== state.activities
+            ? state.countries
+            : state.countries.filter(countryA => paises.includes(countryA.id)) 
+                
+        return { ...state, countries: countriesAct };
 
         case POST_ACTIVITY:{
             return {

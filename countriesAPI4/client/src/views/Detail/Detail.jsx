@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import styles from "./Detail.module.css";
+import style from "./Detail.module.css";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
@@ -21,10 +21,10 @@ const Detail = () => {
   }, [id]);
 
   return (
-    <div>
-      <h1>{country.name}</h1><h2>{country.id}</h2>
+    <div className={style.container}>
       <img src={country.flag} alt="country detail" />
-      <div>
+      <div className={style.detail}>
+      <h1>{country.name}</h1><h2>{country.id}</h2> 
       <h2>Continente: {country.continent}</h2>
       <h2>Capital: {country.capital}</h2>
       <h2>Subregion: {country.subregion}</h2>
