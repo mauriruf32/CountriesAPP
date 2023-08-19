@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, postActivity, getCountryById, getActivities } from "../../redux/actions";
+import { getCountries, orderCountries, getActivities } from "../../redux/actions";
 import style from "./Form.module.css";
 
 const Form = () => {
@@ -14,16 +14,16 @@ const Form = () => {
         difficulty:"",
         duration:"",
         season: "",
-        countries: []
-    })
+        countries: [],
+    });
 
     const [errors, setErrors] = useState({
         name:"",
         difficulty:"",
         duration:"",
         season:"",
-        countries:[]
-    })
+        countries:[],
+    });
 
     const changeHandler = (event) => {
         const property = event.target.name;
@@ -35,32 +35,41 @@ const Form = () => {
     }
 
     const validate = (form) => {
-        if (form.name.length > 20) {
-            setErrors({...errors,name:'Menos de 35 caracteres'})
+        if (form.name === "") {
+            setErrors({...errors, name: "El nombre no puede estar vacio"})
         }
-        if (/.*\d+.*/.test(form.name)) {
-            setErrors({...errors,name:'El nombre no puede tener numeros'})
+        else if (form.name.length > 20) {
+            setErrors({...errors, name: "Menos de 20 caracteres"})
         }
-        if (form.difficulty > 5 || form.difficulty < 1) {
-            setErrors({...errors,difficulty:'La dificultad tiene que ser entre 1 y 5'})
+        else if (/.*\d+.*/.test(form.name)) {
+            setErrors({...errors, name: 'El nombre no puede tener numeros'})
         }
-        if (form.duration > 12) {
-            setErrors({...errors,duration:'La actividad debe durar menos de 12 horas'})
+        else if (form.difficulty > 5 || form.difficulty < 1) {
+            setErrors({...errors, difficulty: 'La dificultad tiene que ser entre 1 y 5'})
         }
-        if (form.season !== "Verano" || form.season !== "Invierno" || form.season !=="Primavera" || form.season !== "Otoño" ){
+        else if (form.duration > 12) {
+            setErrors({...errors,duration: 'La actividad debe durar 12 horas o menos'})
+        }
+        else if (form.season !== "Verano" || form.season !== "Invierno" || form.season !=="Primavera" || form.season !== "Otoño" ){
             setErrors({...errors,season: 'Debes seleccionar una temporada'})
         }
-        if (form.countries === ""){
+        else if (form.countries === ""){
             setErrors({...errors,countries: 'Debes elegir al menos 1 pais'})
+        }
+        else {
+            setErrors({...errors, name:"", difficulty:"", duration:"", season:"", countries:[]})
         }
     } 
 
     const submitHandler = (event) => {
-        event.preventDefault()
+        if (form.countries==="" || form.name==="" || form.duration==="" || form.difficulty ==="" || form.season==="" || form.countries===[] ){
+        event.preventDefault();
+        alert("Se deben llenar todos los campos")}
+        else{
         axios.post("http://localhost:3001/create", form)
-        .then(res=>alert(res))
-        .catch(err=>alert(err))
+        alert("Actividad creada con exito!!")
     }
+    };
 
     useEffect(()=>{
         dispatch(getCountries());
@@ -79,6 +88,10 @@ const Form = () => {
         return setForm({ ...form, ["countries"]: value });
       }
 
+      const handleOrder = function(evento){
+        evento.preventDefault();
+        dispatch(orderCountries(evento.target.value))
+      }
 
     return (
     <form className={style.form} onSubmit={submitHandler}>
@@ -86,7 +99,7 @@ const Form = () => {
         <div className={style.inputbox}>
             <label>Nombre de la actividad: </label>
             <input type="text" value={form.name} onChange={changeHandler} name="name" />
-            {errors.name && <span>{errors.name}</span>}
+            {<small>{errors.name}</small>}
         </div>
 
         <div className={style.inputbox}>
@@ -100,17 +113,23 @@ const Form = () => {
             <input type="text" value={form.duration} onChange={changeHandler} name="duration" />
             {errors.duration && <span>{errors.duration}</span>}
         </div>
-
         <div className={style.inputbox}>
             <label>Temporada: </label>
-            <input type="text" value={form.season} onChange={changeHandler} name="season" />
+                <select type="text" value={form.season} onChange={changeHandler} name="season" >
+                    <option value="Invierno">Invierno</option>
+                    <option value="Otoño">Otoño</option>
+                    <option value="Primavera">Primavera</option>
+                    <option value="Verano">Verano</option>
+                </select>
             {errors.season && <span>{errors.season}</span>}
         </div>
-
         <div className={style.inputbox}>
             <label>Paises donde se realiza la actividad: </label>
+            <select name="order" onChange={handleOrder} className={style.select} >
+             <option value="alphabetA">Nombres (A-Z)</option>
+             <option value="alphabetZ">Nombres (Z-A)</option>
+            </select>
             <select type="text" value={form.countries} name="countries" onChange={changeHandler2}  multiple required>
-                  {/* <option value="">--Please choose an option--</option> */}
                   {countries.map((country) => {
                     return (<option key={country.id} value={country.id}>{" "} {country.name} </option> );
                   })}

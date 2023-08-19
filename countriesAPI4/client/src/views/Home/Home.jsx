@@ -13,6 +13,10 @@ const Home = () => {
     const [filtered, setFiltered] = useState(countries);
     const [searchString, setSearchString] = useState("");
 
+    useEffect(()=>{
+      dispatch(getCountries());
+  },[dispatch]);
+
     const handleChange = (e) => {
         e.preventDefault();
         setSearchString(e.target.value.toLowerCase());
@@ -44,9 +48,7 @@ const Home = () => {
       dispatch(getActivities());
     }, []);
 
-    useEffect(()=>{
-        dispatch(getCountries());
-    },[dispatch]);
+
 
     return (
         <div>
