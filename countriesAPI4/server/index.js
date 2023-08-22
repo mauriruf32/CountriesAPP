@@ -11,11 +11,11 @@ const countriesToDB = async ()=>{
     const countriesData = response.data;
 
     if(!countriesData) throw new Error('La lista está vacía');
-    let countriesArr = [];
+    let countries = [];
     
     await countriesData.map(async (country)=>{
       const newCountries = {
-        id: country.cioc || country.cca3,
+        id: country.cca3,
         name: country.name.common,
         flag: country.flags.png,
         continent: country.continents[0],
@@ -25,9 +25,9 @@ const countriesToDB = async ()=>{
         population: country.population,
         activities: []
       }
-      countriesArr.push(newCountries)
+      countries.push(newCountries)
     })
-    await Country.bulkCreate(countriesArr)
+    await Country.bulkCreate(countries)
     console.log(`La Base de Datos actualizada con ${countriesData.length} países`);
   } catch (error) {
     console.log(error);

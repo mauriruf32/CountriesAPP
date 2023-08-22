@@ -13,12 +13,9 @@ const Home = () => {
     const [filtered, setFiltered] = useState(countries);
     const [searchString, setSearchString] = useState("");
 
-    useEffect(()=>{
-      dispatch(getCountries());
-  },[dispatch]);
+
 
     const handleChange = (e) => {
-        e.preventDefault();
         setSearchString(e.target.value.toLowerCase());
     };
 
@@ -45,16 +42,20 @@ const Home = () => {
     }
 
     useEffect(() => {
+      dispatch(getCountries());
       dispatch(getActivities());
-    }, []);
-
+    }, [dispatch]);
+  //   useEffect(()=>{
+  //     dispatch(getCountries());
+  // },[dispatch]);
 
 
     return (
         <div>
-          <div>
+         
             <h2 className={style.title}>Aqui puedes buscar los paises que quieras... hagamoslo:</h2>
             <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
+             <div>
             <select name="order" onChange={handleOrder} className={style.select} >
              <option value="alphabetA">Nombres (A-Z)</option>
              <option value="alphabetZ">Nombres (Z-A)</option>

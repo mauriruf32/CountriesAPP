@@ -1,8 +1,9 @@
 
-import { Home, Landing, Detail, Form, Activities, About } from "./views";
+import { Home, Landing, Detail, Form, Activities, About, Countries  } from "./views";
 import { useLocation } from "react-router-dom";
 import { Route } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
+
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Route exact path="/create" component={Form}/>
       <Route exact path="/activities" component={Activities}/>
       <Route exact path="/about" component={About}/>
+      <Route exact path="/paises" component={Countries}/>
       <Route path="/home" render={() => <Home/>}/>
     </div>
   );
