@@ -12,10 +12,9 @@ export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export function getCountries(){
     return async function(dispatch){
         const response = await axios.get(`http://localhost:3001/countries`);
-        const countries = response.data;
          dispatch ({
             type: "GET_COUNTRIES",
-            payload: countries
+            payload: response.data
         });
     };
 }

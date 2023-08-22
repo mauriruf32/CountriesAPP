@@ -19,9 +19,7 @@ const Cards = ({ countries }) => {
 
     return (
         <div className={style.container}>
-            {paginatedCountries.map((country) => (
-                <Card key={country.id} country={country} />
-            ))}
+
             <div className={style.pagination}>
                 {Array.from({ length: Math.ceil(countries.length / itemsPerPage) }).map((_, index) => (
                     <button
@@ -33,6 +31,9 @@ const Cards = ({ countries }) => {
                     </button>
                 ))}
             </div>
+            {paginatedCountries.map((country) => (
+                <Card key={country.id} country={country} />
+            ))}
         </div>
     );
 };

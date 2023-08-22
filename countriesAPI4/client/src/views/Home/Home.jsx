@@ -45,9 +45,9 @@ const Home = () => {
       dispatch(getCountries());
       dispatch(getActivities());
     }, [dispatch]);
-  //   useEffect(()=>{
-  //     dispatch(getCountries());
-  // },[dispatch]);
+    useEffect(()=>{
+      dispatch(getCountries());
+  },[dispatch]);
 
 
     return (
