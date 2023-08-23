@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 const SearchBar = () => {
-  //   const { onSearch } = props;
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countries);
 
@@ -16,7 +15,6 @@ const SearchBar = () => {
 
   return (
     <div >
-      {/* <h5>Search Country : {" "} </h5> */}
       <input type="search" onChange={handleChange} placeholder="Buscar paises.." />
     </div>
   );

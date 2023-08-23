@@ -6,3 +6,7 @@
     height: 200px;
     width: 100%;
 }
+.active {
+    background-color: #8400ff88;
+    color: rgb(14, 8, 8);
+}
