@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { getCountries, orderCountries, getActivities } from "../../redux/actions";
+import { getCountries, orderCountriesByName, getActivities } from "../../redux/actions";
 import style from "./Form.module.css";
 
 const Form = () => {
@@ -87,7 +87,7 @@ const Form = () => {
 
       const handleOrder = function(evento){
         evento.preventDefault();
-        dispatch(orderCountries(evento.target.value))
+        dispatch(orderCountriesByName(evento.target.value))
       }
 
     return (

@@ -18,7 +18,7 @@ function App() {
       <Route exact path="/create" component={Form}/>
       <Route exact path="/activities" component={Activities}/>
       <Route exact path="/about" component={About}/>
-      <Route path="/home" render={() => <Home/>}/>
+      <Route exact path="/home" component={Home}/>
     </div>
   );
 }

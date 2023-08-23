@@ -3,25 +3,25 @@ import Card from "../Card/Card";
 import style from "./Cards.module.css";
 
 const Cards = ({ countries }) => {
-    const itemsPerPage = 10;
+    const cardsPerPage = 10;
     const [currentPage, setCurrentPage] = useState(1);
+    
+    const startIndex = (currentPage - 1) * cardsPerPage;
+    const endIndex = startIndex + cardsPerPage;
 
-    // Calcula el índice inicial y final de los países a mostrar en la página actual
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-
-    // Divide la lista de países en grupos de acuerdo al paginado
     const paginatedCountries = countries.slice(startIndex, endIndex);
 
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
     };
 
+
+
     return (
         <div className={style.container}>
 
-            <div className={style.pagination}>
-                {Array.from({ length: Math.ceil(countries.length / itemsPerPage) }).map((_, index) => (
+            <div >
+                {Array.from({ length: Math.ceil(countries.length / cardsPerPage) }).map((_, index) => (
                     <button
                         key={index}
                         onClick={() => handlePageChange(index + 1)}

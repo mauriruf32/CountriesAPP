@@ -1,5 +1,5 @@
-import { FILTER, GET_COUNTRIES, GET_COUNTRY_BY_ID, ORDER, 
-    POST_ACTIVITY, GET_ACTIVITIES, GET_COUNTRY_BY_NAME, FILTER_BY_ACTIVITY} from "./actions";
+import { FILTER, GET_COUNTRIES, GET_COUNTRY_BY_ID, 
+    POST_ACTIVITY, GET_ACTIVITIES, GET_COUNTRY_BY_NAME, FILTER_BY_ACTIVITY, ORDER_BY_NAME} from "./actions";
 
 const initialState = {
     countries: [],
@@ -24,8 +24,8 @@ const rootReducer = (state = initialState, action) => {
             return { ...state, 
                     countries: action.payload, 
                 };
-
-        case ORDER:
+                
+        case ORDER_BY_NAME:
             const orderCountries = state.countries.sort((x,y) => {
                 switch (action.payload){
                     case "alphabetA":

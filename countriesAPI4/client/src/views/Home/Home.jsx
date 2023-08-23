@@ -1,6 +1,6 @@
 import { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterCountries, getCountries, orderCountries, getActivities, filterCountriesByActivity } from "../../redux/actions";
+import { filterCountries, getCountries, orderCountriesByName, getActivities, filterCountriesByActivity } from "../../redux/actions";
 import style from "./Home.module.css";
 import Cards from "../../components/Cards/Cards";
 import SearchBar from "../../components/SearchBar/SearchBar";
@@ -8,27 +8,16 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 
 const Home = () => {
     const dispatch = useDispatch();
+    const [order, setOrder] = useState(false);
     const countries =  useSelector((state) => state.countries);
     const activities = useSelector((state) => state.activities);
-    const [filtered, setFiltered] = useState(countries);
-    const [searchString, setSearchString] = useState("");
-
-
-
-    const handleChange = (e) => {
-        setSearchString(e.target.value.toLowerCase());
-    };
-
-    const handleSubmit = (e) =>{
-        e.preventDefault();
-        const filtered = countries.filter((country)=>
-        country.name.toLowerCase().includes(searchString));
-        setFiltered(filtered);
-    };
+    // const [filtered, setFiltered] = useState(countries);
+    // const [searchString, setSearchString] = useState("");
 
     const handleOrder = function(evento){
-      evento.preventDefault();
-      dispatch(orderCountries(evento.target.value))
+      dispatch(orderCountriesByName(evento.target.value))
+      if (!order) setOrder(true);
+      else setOrder (false);
     }
 
     const handleFilter = function(evento){
@@ -45,16 +34,16 @@ const Home = () => {
       dispatch(getCountries());
       dispatch(getActivities());
     }, [dispatch]);
-    useEffect(()=>{
-      dispatch(getCountries());
-  },[dispatch]);
+  //   useEffect(()=>{
+  //     dispatch(getCountries());
+  // },[dispatch]);
 
 
     return (
         <div>
          
-            <h2 className={style.title}>Aqui puedes buscar los paises que quieras... hagamoslo:</h2>
-            <SearchBar handleChange={handleChange} handleSubmit={handleSubmit} />
+            <h2 className={style.title}>Aqui puedes buscar los paises que quieras. Hagámoslo:</h2>
+            <SearchBar  />
              <div>
             <select name="order" onChange={handleOrder} className={style.select} >
              <option value="alphabetA">Nombres (A-Z)</option>
@@ -78,7 +67,7 @@ const Home = () => {
               <option value="Oceania">Oceania</option>
             </select>
             </div>
-            <Cards countries={filtered}/>          
+            <Cards countries={countries}/>          
         </div>
     );
 }

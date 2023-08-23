@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_COUNTRY_BY_ID = "GET_COUNTRY_BY_ID";
-export const ORDER = "ORDER";
+export const ORDER_BY_NAME = "ORDER_BY_NAME";
 export const FILTER = "FILTER";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const POST_ACTIVITY = "POST_ACTIVITY";
@@ -11,7 +11,7 @@ export const GET_ACTIVITIES = "GET_ACTIVITIES";
 
 export function getCountries(){
     return async function(dispatch){
-        const response = await axios.get(`http://localhost:3001/countries/`);
+        const response = await axios.get(`http://localhost:3001/countries`);
          dispatch ({
             type: "GET_COUNTRIES",
             payload: response.data
@@ -72,10 +72,10 @@ export function filterCountriesByActivity(activities) {
     };
 };
 
-export function orderCountries(value) {
+export function orderCountriesByName(order) {
     return {
-      type: "ORDER",
-      payload: value,
+      type: "ORDER_BY_NAME",
+      payload: order
     };
   };
   
