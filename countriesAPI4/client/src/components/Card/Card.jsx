@@ -24,9 +24,9 @@ const Card = ({country}) =>{
         <Link to={`detail/${id}`}>
         <img className={style.cardImage} src={flag} alt="Bandera:" />
         {/* <img>Bandera:{props.flag} alt=""</img> */}
-         <p className={style.name}>Nombre:{name}</p>
-        <p className={style.detail}>Continente:{continent}</p>
-        <p className={style.detail}>Población:{population}</p>
+         <p className={style.name}>Name: {name}</p>
+        <p className={style.details}>Continent: {continent}</p>
+        <p className={style.details}>Population: {population}</p>
         </Link>
         </div>
     );

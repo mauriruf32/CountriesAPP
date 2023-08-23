@@ -7,7 +7,7 @@
     border: 2px solid var(--lime);
     padding: 15px;
     margin: 10px;
-    background-color: #042940e7;
+    background-color: #04294017;
     color: white;
     border-radius: 15px;
     position: relative;
@@ -28,11 +28,18 @@
   
 
   .card_close {
-    width: 38px;
-    top: 20px;
-    right: 10px;
-    border: 1px solid #000000;
-    background-color: rgba(252, 251, 253, 0.638);
+    display:contents;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: hsla(231, 39%, 49%, 0.596);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
   }
   
   .details {
@@ -41,7 +48,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    font-family: "Courier New", Courier, monospace;
+    font-family: "rmFont";
     color: #fcfcfc;
   }
  
