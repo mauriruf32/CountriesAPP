@@ -35,10 +35,7 @@ const Form = () => {
     }
 
     const validate = (form) => {
-        if (form.name === "") {
-            setErrors({...errors, name: "El nombre no puede estar vacio"})
-        }
-        else if (form.name.length > 20) {
+        if (form.name.length > 20) {
             setErrors({...errors, name: "Menos de 20 caracteres"})
         }
         else if (/.*\d+.*/.test(form.name)) {
@@ -48,7 +45,7 @@ const Form = () => {
             setErrors({...errors, difficulty: 'La dificultad tiene que ser entre 1 y 5'})
         }
         else if (form.duration > 12) {
-            setErrors({...errors,duration: 'La actividad debe durar 12 horas o menos'})
+            setErrors({...errors, duration: 'La actividad debe durar 12 horas o menos'})
         }
         else if (form.season !== "Verano" || form.season !== "Invierno" || form.season !=="Primavera" || form.season !== "Otoño" ){
             setErrors({...errors,season: 'Debes seleccionar una temporada'})
@@ -99,18 +96,18 @@ const Form = () => {
         <div className={style.inputbox}>
             <label>Nombre de la actividad: </label>
             <input type="text" value={form.name} onChange={changeHandler} name="name" />
-            {<small>{errors.name}</small>}
+            {errors.name && <span>{errors.name}</span>}
         </div>
 
         <div className={style.inputbox}>
-            <label>Dificultad (1 - 5): </label>
-            <input type="text" value={form.difficulty} onChange={changeHandler} name="difficulty" />
+            <label>Dificultad: </label>
+            <input type="number" min="1" max="5" value={form.difficulty} onChange={changeHandler} name="difficulty" />
             {errors.difficulty && <span>{errors.difficulty}</span>}
         </div>
 
         <div className={style.inputbox}>
             <label>Duración en horas: </label>
-            <input type="text" value={form.duration} onChange={changeHandler} name="duration" />
+            <input type="number" min="1" max="12" value={form.duration} onChange={changeHandler} name="duration" />
             {errors.duration && <span>{errors.duration}</span>}
         </div>
         <div className={style.inputbox}>
