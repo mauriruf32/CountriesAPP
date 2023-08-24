@@ -17,20 +17,19 @@ const Cards = ({ countries }) => {
 
 
 
-    return (
-        <div className={style.container}>
-
-            <div >
-                {Array.from({ length: Math.ceil(countries.length / cardsPerPage) }).map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => handlePageChange(index + 1)}
-                        className={index + 1 === currentPage ? style.active : ""}
-                    >
-                        {index + 1}
-                    </button>
+return (
+    <div className={style.container}>
+        <div>
+            {Array.from({ length: Math.ceil(countries.length / cardsPerPage) }).map((_, index) => (
+                <button 
+                    key={index}
+                    onClick={() => handlePageChange(index + 1)}
+                    className={index + 1 === currentPage ? style.active : ""}
+                >
+                    {index + 1}
+                </button>
                 ))}
-            </div>
+        </div>
             {paginatedCountries.map((country) => (
                 <Card key={country.id} country={country} />
             ))}
