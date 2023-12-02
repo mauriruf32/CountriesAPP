@@ -1,16 +1,22 @@
-.container{
-    /* background-color: #2e37e2; */
+.container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-top: 2%;
+    margin-top: 170px;
+    border: 2px solid var(--lime);
+    border-radius: 15px;
+    width: 50%;
+    margin-left: 300px;
+}
+
+.container:hover {
+    box-shadow: 0 8px 16px 0 rgb(255, 255, 255);
 }
 
 .detail {
-list-style-type: none;
-margin: 0;
-padding: 0;
-color: white;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    color: white;
 }
     

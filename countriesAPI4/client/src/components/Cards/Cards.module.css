@@ -5,8 +5,35 @@
     margin-top: 20px;
     height: 200px;
     width: 100%;
-}
+}/* 
 .active {
     background-color: #8400ff88;
     color: rgb(14, 8, 8);
-}
+} */
+
+/* Cards.module.css */
+
+/* .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+  
+  .pagination {
+
+    margin-top: 20px;
+  }
+  
+  .pageButton {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+  }
+  
+  .active {
+    background-color: #0056b3;
+  }
+  

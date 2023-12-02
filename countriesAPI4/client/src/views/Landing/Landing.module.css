@@ -1,46 +1,41 @@
-body{
+/* body {
     background-image: url('../../../images/landing.jpg');
     background-size: cover;
     background-attachment:fixed;
     background-repeat: no-repeat;
     background-position:center;
+} */
+
+
+
+.container {
+    height: 100%;
+    text-align: center;
+    margin-top: 170px;
+    position: relative;
 }
 
 .title {
-    position: absolute;
-    width: 100%;
-    max-width: 400px;
-    padding: 16px 30px;
-    text-align: center;
-    top: 20%;
-    left: 33%;
-    color: white;
-    text-decoration:double;
-    text-decoration-color:blueviolet ;
+  margin-bottom: 20px;
+  color: #fff;
 }
 
-text:hover {
-    background-color: rgba(29, 11, 121, 0.829);
-    color: white;
-  }
-  
+
 .button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #f1f1f1;
-    color: rgba(29, 11, 121, 0.829);
-    font-size: 16px;
-    padding: 16px 30px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
+
 
 .button:hover {
     background-color: rgba(29, 11, 121, 0.829);
     color: white;
   }
+
+

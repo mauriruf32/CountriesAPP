@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { filterCountries, getCountries, orderCountriesByName, getActivities, filterCountriesByActivity } from "../../redux/actions";
 import style from "./Home.module.css";
 import Cards from "../../components/Cards/Cards";
-import SearchBar from "../../components/SearchBar/SearchBar";
-
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -13,6 +11,11 @@ const Home = () => {
     const activities = useSelector((state) => state.activities);
     // const [filtered, setFiltered] = useState(countries);
     // const [searchString, setSearchString] = useState("");
+
+    const resetFilters = () => {
+      dispatch(getCountries()); // Obtener todos los países sin filtros
+      // También puedes reiniciar otros estados de filtros aquí si es necesario
+    };
 
     const handleOrder = function(evento){
       dispatch(orderCountriesByName(evento.target.value))
@@ -40,10 +43,9 @@ const Home = () => {
 
 
     return (
-        <div>
+        <div className={style.container}>
          
             <h2 className={style.title}>Aqui puedes buscar los paises que quieras. Hagámoslo:</h2>
-            <SearchBar  />
              <div>
             <select name="order" onChange={handleOrder} className={style.select} >
              <option value="alphabetA">Nombres (A-Z)</option>
@@ -66,6 +68,9 @@ const Home = () => {
               <option value="South America">South America</option>
               <option value="Oceania">Oceania</option>
             </select>
+            <button onClick={resetFilters} className={style.resetButton}>
+          Resetear Filtros
+        </button>
             </div>
             <Cards countries={countries}/>          
         </div>
