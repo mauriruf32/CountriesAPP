@@ -19,6 +19,7 @@ const Detail = () => {
     );
     return setCountry({});
   }, [id]);
+  
 
   return (
     <div className={style.container}>

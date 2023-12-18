@@ -93,6 +93,7 @@ const Form = () => {
     return (
     <form className={style.form} onSubmit={submitHandler}>
         <h1>Crea tu propia actividad:</h1>
+        <h3>Aqui puedes crear cualquier actividad que quieras y asignarles los paises que mas te gusten...</h3>
         <div className={style.inputbox}>
             <label>Nombre de la actividad: </label>
             <input type="text" value={form.name} onChange={changeHandler} name="name" />

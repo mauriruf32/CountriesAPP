@@ -1,17 +1,30 @@
 import React from "react";
 import styles from "./About.module.css";
+import globo from "../../imagenes/globo2.gif";
+
 
 const About = () => {
+
+  
   return (
     <div className={styles.conteiner}>
-      
-      <h1>Hola, mi nombre es Mauricio y espero esten disfrutando de mi Api de Countries.</h1>
-      <h2>Esta App, aunque tal vez no lo parezca a primera vista, implicó mucho esfuerzo, dedicacion y estudio. De mi podria decir que a lo largo de mis 34 años he trabajado en varios rubros; desde canillita, pintor en herreria, venta de planes de capitalización y ahorro e incluso profesor de hitoria. Aprendi muchas cosas pero siempre pense que deberia haber estudiado programacion enseguida de terminar la secundaria, siempre tuve afinidad a todo lo que era la computacion.  La cuestion es que aun podia hacerlo, y tengo  la oportunidad gracias tambien a SoyHenry brinda con este tipo de alternativa de cursado. </h2>
-      
+      <img className={styles.globo} src={globo} alt="Globo" />
+      <div className={styles.texto}>
+        <h1>Hola, mi nombre es Mauricio y espero esten disfrutando de mi Api de Countries.</h1>
+        <h2>Esta web fue creada como parte del proyecto individual para el bootcamp de SoyHenry, 
+          el cual fue aprobado con exito.
+        Aqui pueden visualizar cards de mas de 200 paises, haciendo click 
+        en ellas acceden a un detalle de ese pais, alli encontraran informacion 
+        adicional como su capital, area o territorio, subregion, etc. 
+        Cuenta con un formulario para crear activiades turisticas y agregar cualquier pais o paises. 
+        Ademas podran buscar un pais por su nombre o iniciales, filtrar por continente y por activiades turisticas.
+        Tambien se puede ordenar las cards de manera ascendente o descendente por cantidad de poblacion 
+        y alfabeticamente.</h2>
+      </div>
     </div>
-
   );
 };
+
 
 
 export default About;

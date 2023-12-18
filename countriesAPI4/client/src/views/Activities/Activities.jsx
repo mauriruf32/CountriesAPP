@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "./Activities.module.css";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { getActivities, getCountries } from "../../redux/actions";
 
 const Activities = () => {
   const [activities, setActivities] = useState([]);
@@ -31,7 +28,9 @@ const Activities = () => {
             <p>Paises: </p>
             <ul>
               {activity.Countries.map((country) => (
-                <li key={country.id}>{country.name}</li>
+                <li key={country.id}>
+                  {country.name}
+                <img className={style.detailBandera} src={country.flag} alt="Bandera:" /></li>
               ))}
             </ul>
           </li>

@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { getCountryByName } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -21,20 +19,3 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-
-
-// const SearchBar = ({handleChange, handleSubmit}) => {
-
-//   return (
-//     <div>
-//             <form onChange={handleChange}>
-//             <input placeholder="Busqueda" />
-//             <button type= "submit" onClick={handleSubmit}>Buscar</button>
-//             </form>
-//     </div>
-//   );
-// };
-
-// export default SearchBar;
-
-

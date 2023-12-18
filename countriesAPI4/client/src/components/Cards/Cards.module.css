@@ -1,24 +1,11 @@
 .container{
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    height: 200px;
-    width: 100%;
-}/* 
-.active {
-    background-color: #8400ff88;
-    color: rgb(14, 8, 8);
-} */
-
-/* Cards.module.css */
-
-/* .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  } */
-  
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  height: 200px;
+  width: 100%;
+}
   .pagination {
 
     margin-top: 20px;
