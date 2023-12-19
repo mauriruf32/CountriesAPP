@@ -1,9 +1,20 @@
 body {
-      background-image: url('../../imagenes/fondo_estrellas2.gif');
-  background-size: cover;
+  background-image: url('../../imagenes/fondo_estrellas2.gif');
+  background-size: contain;
   background-attachment:fixed;
-  background-repeat: no-repeat;
-  background-position:center;
+  background-repeat:unset;
+  background-position: unset;
+  font-family: Verdana, Tahoma, sans-serif;
+}
+
+.container {
+  background-image: url("../../imagenes/plane-sky-black-white.jpg");
+  background-size:cover;
+  background-attachment:fixed;
+  background-repeat:no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
 }
 
 .title{

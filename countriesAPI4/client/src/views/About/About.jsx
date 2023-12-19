@@ -5,21 +5,21 @@ import globo from "../../imagenes/globo2.gif";
 
 const About = () => {
 
-  
   return (
     <div className={styles.conteiner}>
       <img className={styles.globo} src={globo} alt="Globo" />
       <div className={styles.texto}>
-        <h1>Hola, mi nombre es Mauricio y espero esten disfrutando de mi Api de Countries.</h1>
-        <h2>Esta web fue creada como parte del proyecto individual para el bootcamp de SoyHenry, 
-          el cual fue aprobado con exito.
-        Aqui pueden visualizar cards de mas de 200 paises, haciendo click 
-        en ellas acceden a un detalle de ese pais, alli encontraran informacion 
-        adicional como su capital, area o territorio, subregion, etc. 
-        Cuenta con un formulario para crear activiades turisticas y agregar cualquier pais o paises. 
-        Ademas podran buscar un pais por su nombre o iniciales, filtrar por continente y por activiades turisticas.
-        Tambien se puede ordenar las cards de manera ascendente o descendente por cantidad de poblacion 
-        y alfabeticamente.</h2>
+        <h1>Hello, my name is Mauricio, and I hope you are enjoying the Countries API I've created.</h1>
+        <h2> This website was developed as part of my individual project for the SoyHenry bootcamp, 
+          and I'm pleased to share that it was successfully approved. </h2>
+          <h2> Here, you can explore cards representing over 200 countries. By clicking on them, you can access detailed information about each country,
+           including its capital, area or territory, subregion, and more.
+            The platform features a form that allows you to create tourist 
+            activities and associate them with any country or countries. </h2>
+            <h2> Additionally, you have the option to search for a country by its name or initials, 
+              apply filters based on continent or tourist activities, and sort the cards in ascending or descending order
+               by population size or alphabetically. 
+              I hope you find the website informative and user-friendly.</h2>
       </div>
     </div>
   );

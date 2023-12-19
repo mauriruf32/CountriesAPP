@@ -1,9 +1,14 @@
 .form {
+  background-image: url('../../../src/imagenes/plane-sky-black-white.jpg');
+  background-position:center;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
   color: white;
+  margin-top: 100px;
+  font-family: Verdana, Tahoma, sans-serif;
 }
 
 .inputbox {

@@ -1,21 +1,26 @@
 .conteiner {
+  background-image: url("../../imagenes/plane-sky-black-white.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 900px;
 }
 
 .globo {
-  margin-top: 100px;
+  margin-top: 50px;
   height: 150px;
 }
 
 .texto {
+  font-family:  Tahoma, Geneva, Verdana, sans-serif;
   text-align:justify;
   color: #ffffff;
+  font-size: small;
   text-indent: 50px;
   letter-spacing: 3px;
   margin-left: 100px;
-  margin-top: 200px;
-  width: 800px;
+  margin-top: 100px;
+  width: 700px;
 }
 

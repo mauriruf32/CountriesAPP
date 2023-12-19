@@ -2,8 +2,7 @@
     width: 20%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
-    /* align-items: center; */
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: 2px solid var(--lime);
     padding: 15px;
     margin: 10px;
@@ -17,7 +16,7 @@
   }
 
   .name {
-    font-family: "rmFont";
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     color: #eceff0;
@@ -48,7 +47,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    font-family: "rmFont";
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fcfcfc;
   }
  

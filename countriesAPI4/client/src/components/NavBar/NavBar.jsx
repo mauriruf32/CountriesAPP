@@ -8,7 +8,7 @@ const NavBar = () => {
         <div className={style.container}>
             <Link to="/home">HOME</Link>
             <Link to="/create">FORM</Link>
-            <Link to="/activities">ACTIVIDADES</Link>
+            <Link to="/activities">ACTIVITIES</Link>
             <Link to="/about">ABOUT</Link>
         </div>
     );

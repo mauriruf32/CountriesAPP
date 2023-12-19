@@ -45,7 +45,6 @@ const Home = () => {
     return (
         <div className={style.container}>
             <h2 className={style.title}>Aqui puedes buscar los paises que quieras. Hagámoslo:</h2>
-             <div>
              <SearchBar />
             <select name="order" onChange={handleOrder} className={style.select} >
              <option value="alphabetA">Nombres (A-Z)</option>
@@ -71,7 +70,6 @@ const Home = () => {
             <button onClick={resetFilters} className={style.resetButton}>
           Resetear Filtros
         </button>
-            </div>
             <Cards countries={countries}/>          
         </div>
     );
