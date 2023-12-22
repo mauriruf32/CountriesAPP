@@ -1,4 +1,8 @@
 .container {
+    background-image: url('../../imagenes/plane-sky-black-white.jpg');
+
+    background-position: center;
+ 
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -10,7 +10,7 @@ const Landing = () => {
       <div className={style.title}>
         <h1>Welcome to my Countries API</h1>
       </div>
-      <button className={style.button}><Link to="/home">Ingresar</Link></button>
+      <button className={style.button}><Link to="/home">Get In</Link></button>
     </div>
   );
 };

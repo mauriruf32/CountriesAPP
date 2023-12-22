@@ -17,15 +17,15 @@ const Activities = () => {
 
   return (
     <div>
-      <h2 className={style.title}>Lista de Actividades:</h2>
+      <h2 className={style.title}>Activities List:</h2>
       <ul className={style.container}>
         {activities.map((activity) => (
           <li key={activity.id}>
             <h3>{activity.name}</h3>
-            <p>Dificultad: {activity.difficulty}</p>
-            <p>Duración: {activity.duration} horas</p>
-            <p>Temporada: {activity.season}</p>
-            <p>Paises: </p>
+            <p>Difficulty: {activity.difficulty}</p>
+            <p>Duration: {activity.duration} hours</p>
+            <p>Season: {activity.season}</p>
+            <p>Countries: </p>
             <ul>
               {activity.Countries.map((country) => (
                 <li key={country.id}>

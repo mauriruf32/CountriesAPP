@@ -5,7 +5,12 @@
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 20px;
-    height: 200px;
+    height: 1000px;
+    background-image: url('../../imagenes/plane-sky-black-white.jpg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-attachment:fixed;
 }
 
 .title{

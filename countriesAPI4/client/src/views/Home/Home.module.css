@@ -8,13 +8,13 @@ body {
 }
 
 .container {
-  background-image: url("../../imagenes/plane-sky-black-white.jpg");
+  background-image: url('../../imagenes/plane-sky-black-white.jpg');
   background-size:cover;
-  background-attachment:fixed;
   background-repeat:no-repeat;
   background-position: center;
+  background-attachment:fixed;
   width: 100%;
-  height: 100%;
+  height: 1500px;
 }
 
 .title{

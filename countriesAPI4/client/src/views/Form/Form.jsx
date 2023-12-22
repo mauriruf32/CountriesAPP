@@ -7,7 +7,7 @@ import style from "./Form.module.css";
 const Form = () => {
     const dispatch = useDispatch();
     const countries = useSelector((state) => state.countries);
-    const activities = useSelector((state)=> state.activities)
+    
 
     const [form, setForm ] = useState({
         name:"",
@@ -47,7 +47,7 @@ const Form = () => {
         else if (form.duration > 12) {
             setErrors({...errors, duration: 'La actividad debe durar 12 horas o menos'})
         }
-        else if (form.season !== "Verano" || form.season !== "Invierno" || form.season !=="Primavera" || form.season !== "Otoño" ){
+        else if (form.season !== "Summer" || form.season !== "Winter" || form.season !=="Spring" || form.season !== "Autum" ){
             setErrors({...errors,season: 'Debes seleccionar una temporada'})
         }
         else if (form.countries === ""){
@@ -71,7 +71,7 @@ const Form = () => {
     useEffect(()=>{
         dispatch(getCountries());
         dispatch(getActivities());
-    },[]);
+    },[dispatch]);
 
     const changeHandler2=(e)=> {
         var options = e.target.options;
@@ -92,40 +92,40 @@ const Form = () => {
 
     return (
     <form className={style.form} onSubmit={submitHandler}>
-        <h1>Crea tu propia actividad:</h1>
-        <h3>Aqui puedes crear cualquier actividad que quieras y asignarles los paises que mas te gusten...</h3>
+        <h1>Create your own activity:</h1>
+        <h3>Here you can create any activity you want and assign the countries you like the most...</h3>
         <div className={style.inputbox}>
-            <label>Nombre de la actividad: </label>
+            <label>Activity Name: </label>
             <input type="text" value={form.name} onChange={changeHandler} name="name" />
             {errors.name && <span>{errors.name}</span>}
         </div>
 
         <div className={style.inputbox}>
-            <label>Dificultad: </label>
+            <label>Difficulty: </label>
             <input type="number" min="1" max="5" value={form.difficulty} onChange={changeHandler} name="difficulty" />
             {errors.difficulty && <span>{errors.difficulty}</span>}
         </div>
 
         <div className={style.inputbox}>
-            <label>Duración en horas: </label>
+            <label>Duration in hours: </label>
             <input type="number" min="1" max="12" value={form.duration} onChange={changeHandler} name="duration" />
             {errors.duration && <span>{errors.duration}</span>}
         </div>
         <div className={style.inputbox}>
-            <label>Temporada: </label>
+            <label>Season: </label>
                 <select type="text" value={form.season} onChange={changeHandler} name="season" >
-                    <option value="Invierno">Invierno</option>
-                    <option value="Otoño">Otoño</option>
-                    <option value="Primavera">Primavera</option>
-                    <option value="Verano">Verano</option>
+                    <option value="Winter">Winter</option>
+                    <option value="Autum">Autum</option>
+                    <option value="Spring">Spring</option>
+                    <option value="Summer">Summer</option>
                 </select>
             {errors.season && <span>{errors.season}</span>}
         </div>
         <div className={style.inputbox}>
-            <label>Paises donde se realiza la actividad: </label>
+            <label>Countries where the activity takes place: </label>
             <select name="order" onChange={handleOrder} className={style.select} >
-             <option value="alphabetA">Nombres (A-Z)</option>
-             <option value="alphabetZ">Nombres (Z-A)</option>
+             <option value="alphabetA">Names (A-Z)</option>
+             <option value="alphabetZ">Names (Z-A)</option>
             </select>
             <select type="text" value={form.countries} name="countries" onChange={changeHandler2}  multiple required>
                   {countries.map((country) => {
@@ -136,7 +136,7 @@ const Form = () => {
 
         </div>
 
-        <button type="submit">Crear Actividad</button>
+        <button type="submit">Create Activity</button>
     </form>
     )
 }
