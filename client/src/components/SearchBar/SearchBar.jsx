@@ -13,7 +13,7 @@ const SearchBar = () => {
 
   return (
     <div >
-      <input type="search" onChange={handleChange} placeholder="Buscar paises.." />
+      <input type="search" onChange={handleChange} placeholder="Search.." />
     </div>
   );
 };
