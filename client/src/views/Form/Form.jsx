@@ -36,22 +36,22 @@ const Form = () => {
 
     const validate = (form) => {
         if (form.name.length > 20) {
-            setErrors({...errors, name: "Menos de 20 caracteres"})
+            setErrors({...errors, name: "Less than 20 characters."})
         }
         else if (/.*\d+.*/.test(form.name)) {
-            setErrors({...errors, name: 'El nombre no puede tener numeros'})
+            setErrors({...errors, name: 'The name cannot have numbers.'})
         }
         else if (form.difficulty > 5 || form.difficulty < 1) {
-            setErrors({...errors, difficulty: 'La dificultad tiene que ser entre 1 y 5'})
+            setErrors({...errors, difficulty: 'The difficulty must be between 1 and 5.'})
         }
         else if (form.duration > 12) {
-            setErrors({...errors, duration: 'La actividad debe durar 12 horas o menos'})
+            setErrors({...errors, duration: 'The activity must last 12 hours or less.'})
         }
         else if (form.season !== "Summer" || form.season !== "Winter" || form.season !=="Spring" || form.season !== "Autum" ){
-            setErrors({...errors,season: 'Debes seleccionar una temporada'})
+            setErrors({...errors,season: 'You must select a season.'})
         }
         else if (form.countries === ""){
-            setErrors({...errors,countries: 'Debes elegir al menos 1 pais'})
+            setErrors({...errors,countries: 'You must choose at least 1 country.'})
         }
         else {
             setErrors({...errors, name:"", difficulty:"", duration:"", season:"", countries:[]})
@@ -61,10 +61,10 @@ const Form = () => {
     const submitHandler = (event) => {
         if (form.countries==="" || form.name==="" || form.duration==="" || form.difficulty ==="" || form.season==="" || form.countries===[] ){
         event.preventDefault();
-        alert("Se deben llenar todos los campos")}
+        alert("All fields must be filled out.")}
         else{
         axios.post("http://localhost:3001/create", form)
-        alert("Actividad creada con exito!!")
+        alert("Activity created successfully!!")
     }
     };
 

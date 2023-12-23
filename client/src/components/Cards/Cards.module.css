@@ -1,5 +1,4 @@
 .container{
-  
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -8,20 +7,23 @@
   width: 100%;
 }
   .pagination {
-
     margin-top: 20px;
   }
   
   .pageButton {
-    background-color: #007bff;
+    background-color: #a8adb3;
     color: #fff;
     border: none;
     padding: 8px 12px;
     margin: 0 4px;
     cursor: pointer;
   }
+  .pageButton:hover {
+    background-color: rgba(29, 11, 121, 0.829);
+    color: white;
+  }
   
   .active {
-    background-color: #0056b3;
+    background-color: #27292c;
   }
   

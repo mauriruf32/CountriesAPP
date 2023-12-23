@@ -8,9 +8,9 @@ const Landing = () => {
     <div className={style.container}>
       <img src={globo} alt="Globo" />
       <div className={style.title}>
-        <h1>Welcome to my Countries API</h1>
+        <h1>Welcome to my Countries App</h1>
       </div>
-      <button className={style.button}><Link to="/home">Get In</Link></button>
+      <Link to="/home"><button className={style.button}>Explore</button></Link>
     </div>
   );
 };

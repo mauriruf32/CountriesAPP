@@ -10,8 +10,6 @@ const Home = () => {
     const [order, setOrder] = useState(false);
     const countries =  useSelector((state) => state.countries);
     const activities = useSelector((state) => state.activities);
-    // const [filtered, setFiltered] = useState(countries);
-    // const [searchString, setSearchString] = useState("");
 
     const resetFilters = () => {
       dispatch(getCountries()); 
@@ -37,21 +35,17 @@ const Home = () => {
       dispatch(getCountries());
       dispatch(getActivities());
     }, [dispatch]);
-  //   useEffect(()=>{
-  //     dispatch(getCountries());
-  // },[dispatch]);
 
-  
 
     return (
         <div className={style.container}>
-            <h2 className={style.title}>Aqui puedes buscar los paises que quieras. Hagámoslo:</h2>
+            <h2 className={style.title}>Here you can search for the countries you want. Let's do it:</h2>
              <SearchBar />
             <select name="order" onChange={handleOrder} className={style.select} >
-             <option value="alphabetA">Nombres (A-Z)</option>
-             <option value="alphabetZ">Nombres (Z-A)</option>
-             <option value="higherPopulation">Mayor Población</option>
-             <option value="lowerPopulation">Menor Población</option>
+             <option value="alphabetA">Names (A-Z)</option>
+             <option value="alphabetZ">Names (Z-A)</option>
+             <option value="higherPopulation">Higher population</option>
+             <option value="lowerPopulation">Lower population</option>
             </select>
             <select name="activity" onChange={handleFilterActivity} className={style.select} >
             <option value="all">All</option>
@@ -68,8 +62,8 @@ const Home = () => {
               <option value="South America">South America</option>
               <option value="Oceania">Oceania</option>
             </select>
-            <button onClick={resetFilters} className={style.resetButton}>
-          Resetear Filtros
+            <button onClick={resetFilters} className={style.resetButton}>    
+Reset Filters
         </button>
             <Cards countries={countries}/>          
         </div>

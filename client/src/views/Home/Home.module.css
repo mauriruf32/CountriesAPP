@@ -28,3 +28,19 @@ body {
     width: 10rem;
     font-size: small;
 }
+
+.resetButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #a8adb3;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.resetButton:hover {
+  background-color: rgba(29, 11, 121, 0.829);
+  color: white;
+  }

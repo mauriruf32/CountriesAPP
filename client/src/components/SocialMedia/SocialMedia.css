@@ -1,0 +1,7 @@
+.containerSocial {
+    display: flex;
+    flex-direction: unset;
+    list-style: none;
+    font-family:  Tahoma, Verdana, sans-serif;
+    color: #ffffff;
+}

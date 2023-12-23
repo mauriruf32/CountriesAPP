@@ -11,8 +11,29 @@ const Cards = ({ countries }) => {
 
   const paginatedCountries = countries.slice(startIndex, endIndex);
 
+  const totalPages = Math.ceil(countries.length / cardsPerPage);
+
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
+  };
+
+  const renderPagination = () => {
+    const pagesToShow = [];
+    const range = 2; 
+
+    for (let i = Math.max(1, currentPage - range); i <= Math.min(totalPages, currentPage + range); i++) {
+      pagesToShow.push(
+        <button
+          key={i}
+          onClick={() => handlePageChange(i)}
+          className={`${style.pageButton} ${i === currentPage ? style.active : ""}`}
+        >
+          {i}
+        </button>
+      );
+    }
+
+    return pagesToShow;
   };
 
   return (
@@ -21,19 +42,21 @@ const Cards = ({ countries }) => {
         <Card key={country.id} country={country} />
       ))}
       <div className={style.pagination}>
-        {Array.from({ length: Math.ceil(countries.length / cardsPerPage) }).map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handlePageChange(index + 1)}
-            className={`${style.pageButton} ${index + 1 === currentPage ? style.active : ""}`}
-          >
-            {index + 1}
+        {currentPage > 1 && (
+          <button onClick={() => handlePageChange(currentPage - 1)} className={style.pageButton}>
+            {"<"}
           </button>
-        ))}
+        )}
+        {renderPagination()}
+        {currentPage < totalPages && (
+          <button onClick={() => handlePageChange(currentPage + 1)} className={style.pageButton}>
+            {">"}
+          </button>
+        )}
       </div>
-
     </div>
   );
 };
 
 export default Cards;
+
