@@ -9,7 +9,10 @@ const About = () => {
   return (
     <div className={styles.conteiner}>
       <img className={styles.globo} src={mauri} alt="Mauri" />
-      <div className={styles.texto}>
+      <div className={styles.social}>
+    <SocialMedia/>
+    </div>
+      <div className={styles.texto}>   
         <h1>Hello, my name is Mauricio, and I hope you are enjoying the Countries API I've created.</h1>
         <h2> This website was developed as part of my individual project for the SoyHenry bootcamp, 
           and I'm pleased to share that it was successfully approved. </h2>
@@ -21,7 +24,6 @@ const About = () => {
               apply filters based on continent or tourist activities, and sort the cards in ascending or descending order
                by population size or alphabetically. 
               I hope you find the website informative and user-friendly.</h2>
-              <SocialMedia/>
 
       </div>
     </div>

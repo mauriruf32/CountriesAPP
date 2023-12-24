@@ -23,9 +23,9 @@ const Detail = () => {
 
   return (
     <div className={style.container}>
-      <img src={country.flag} alt="country detail" />
+      <img className={style.bandera} src={country.flag} alt="country detail" />
       <div className={style.detail}>
-      <h1>{country.name}</h1><h2>{country.id}</h2> 
+      <h1 className={style.name}>{country.name}</h1><h2>{country.id}</h2> 
       <h2>Continent: {country.continent}</h2>
       <h2>Capital: {country.capital}</h2>
       <h2>Subregion: {country.subregion}</h2>
