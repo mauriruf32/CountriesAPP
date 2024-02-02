@@ -3,6 +3,7 @@ import style from "./Landing.module.css";
 import globo from "../../imagenes/globo2.gif";
 import { Link } from "react-router-dom";
 
+
 const Landing = () => {
   return (
     <div> 

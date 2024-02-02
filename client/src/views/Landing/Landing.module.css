@@ -1,8 +1,9 @@
 .container {
     height: 100%;
+    width: 100%;
     text-align: center;
-    margin-top: 170px;
     position: relative;
+    padding-top: 5%;
 }
 
 .title {

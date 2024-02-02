@@ -1,5 +1,5 @@
 .card{
-    width: 20%;
+    width: auto;
     display: flex;
     flex-direction: column;
     font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
@@ -10,6 +10,7 @@
     color: white;
     border-radius: 15px;
     position: relative;
+    height: auto;
 }
 .card:hover {
     box-shadow: 0 8px 16px 0 rgb(255, 255, 255);
