@@ -11,7 +11,7 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST, DATABASE_URL
 } = process.env;
 
-const sequelize = new Sequelize(`${DATABASE_URL}`, {
+const sequelize = new Sequelize(DATABASE_URL, {
   logging: false, 
   native: false, 
 });

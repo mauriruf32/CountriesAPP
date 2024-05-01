@@ -3,7 +3,7 @@ const server = require("./src/server");
 const { conn } = require('./src/db.js');
 const PORT = 3001;
 const { Country } = require('./src/db');
-const URL = 'http://localhost:5000/countries';
+const URL = process.env.URL;
 
 const countriesToDB = async ()=>{
   try {
