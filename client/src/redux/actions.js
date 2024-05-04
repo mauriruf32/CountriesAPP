@@ -1,5 +1,6 @@
 import axios from "axios";
 
+
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_COUNTRY_BY_ID = "GET_COUNTRY_BY_ID";
 export const ORDER_BY_NAME = "ORDER_BY_NAME";
@@ -9,7 +10,9 @@ export const POST_ACTIVITY = "POST_ACTIVITY";
 export const GET_COUNTRY_BY_NAME = "GET_COUNTRY_BY_NAME";
 export const GET_ACTIVITIES = "GET_ACTIVITIES";
 
-const URL = process.env.URL || 'http://localhost:3001';
+
+
+const URL = process.env.DATABASE_URL || 'http://localhost:3001';
 
 
 export function getCountries(){
