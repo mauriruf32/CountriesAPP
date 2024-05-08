@@ -1,5 +1,6 @@
 import axios from "axios";
 
+import { countries } from "../utils/dummyData";
 
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_COUNTRY_BY_ID = "GET_COUNTRY_BY_ID";
@@ -17,10 +18,10 @@ const URL = process.env.DATABASE_URL || 'http://localhost:3001';
 
 export function getCountries(){
     return async function(dispatch){
-        const response = await axios.get(`${URL}/countries`);
+        // const response = await axios.get(`${URL}/countries`);
          dispatch ({
             type: "GET_COUNTRIES",
-            payload: response.data
+            payload: countries
         });
     };
 }
