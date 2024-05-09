@@ -1,5 +1,6 @@
 import { getCountryByName } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
+import { countries } from "../../utils/dummyData";
 
 
 const SearchBar = () => {

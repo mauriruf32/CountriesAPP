@@ -2,7 +2,7 @@ export const countries = [
     {
       id: 'USA',
       name: 'United States',
-      flag: '🇺🇸',
+      flag: 'https://flagcdn.com/w320/us.png',
       continent: 'North America',
       capital: 'Washington, D.C.',
       subregion: 'Northern America',
@@ -12,7 +12,7 @@ export const countries = [
     {
       id: 'CAN',
       name: 'Canada',
-      flag: '🇨🇦',
+      flag: 'https://flagcdn.com/w320/ca.png',
       continent: 'North America',
       capital: 'Ottawa',
       subregion: 'Northern America',
@@ -22,7 +22,7 @@ export const countries = [
     {
       id: 'MEX',
       name: 'Mexico',
-      flag: '🇲🇽',
+      flag: 'https://flagcdn.com/w320/mx.png',
       continent: 'North America',
       capital: 'Mexico City',
       subregion: 'Central America',
@@ -32,7 +32,7 @@ export const countries = [
     {
       id: 'GBR',
       name: 'United Kingdom',
-      flag: '🇬🇧',
+      flag: 'https://flagcdn.com/w320/gb.png',
       continent: 'Europe',
       capital: 'London',
       subregion: 'Northern Europe',
@@ -42,7 +42,7 @@ export const countries = [
     {
       id: 'DEU',
       name: 'Germany',
-      flag: '🇩🇪',
+      flag: 'https://flagcdn.com/w320/de.png',
       continent: 'Europe',
       capital: 'Berlin',
       subregion: 'Western Europe',
@@ -52,7 +52,7 @@ export const countries = [
     {
       id: 'FRA',
       name: 'France',
-      flag: '🇫🇷',
+      flag: 'https://flagcdn.com/w320/fr.png',
       continent: 'Europe',
       capital: 'Paris',
       subregion: 'Western Europe',
@@ -62,7 +62,7 @@ export const countries = [
     {
       id: 'ESP',
       name: 'Spain',
-      flag: '🇪🇸',
+      flag: 'https://flagcdn.com/w320/es.png',
       continent: 'Europe',
       capital: 'Madrid',
       subregion: 'Southern Europe',
@@ -72,7 +72,7 @@ export const countries = [
     {
       id: 'ITA',
       name: 'Italy',
-      flag: '🇮🇹',
+      flag: 'https://flagcdn.com/w320/it.png',
       continent: 'Europe',
       capital: 'Rome',
       subregion: 'Southern Europe',
@@ -82,7 +82,7 @@ export const countries = [
     {
       id: 'CHN',
       name: 'China',
-      flag: '🇨🇳',
+      flag: 'https://flagcdn.com/w320/cn.png',
       continent: 'Asia',
       capital: 'Beijing',
       subregion: 'Eastern Asia',
@@ -92,7 +92,7 @@ export const countries = [
     {
       id: 'IND',
       name: 'India',
-      flag: '🇮🇳',
+      flag: 'https://flagcdn.com/w320/in.png',
       continent: 'Asia',
       capital: 'New Delhi',
       subregion: 'Southern Asia',
@@ -102,7 +102,7 @@ export const countries = [
     {
       id: 'JPN',
       name: 'Japan',
-      flag: '🇯🇵',
+      flag: 'https://flagcdn.com/w320/jp.png',
       continent: 'Asia',
       capital: 'Tokyo',
       subregion: 'Eastern Asia',
@@ -112,7 +112,7 @@ export const countries = [
     {
       id: 'BRA',
       name: 'Brazil',
-      flag: '🇧🇷',
+      flag: 'https://flagcdn.com/w320/br.png',
       continent: 'South America',
       capital: 'Brasília',
       subregion: 'South America',
@@ -122,7 +122,7 @@ export const countries = [
     {
       id: 'ARG',
       name: 'Argentina',
-      flag: '🇦🇷',
+      flag: 'https://flagcdn.com/w320/ar.png',
       continent: 'South America',
       capital: 'Buenos Aires',
       subregion: 'South America',
@@ -132,7 +132,7 @@ export const countries = [
     {
       id: 'AUS',
       name: 'Australia',
-      flag: '🇦🇺',
+      flag: 'https://flagcdn.com/w320/au.png',
       continent: 'Oceania',
       capital: 'Canberra',
       subregion: 'Australia and New Zealand',
@@ -142,7 +142,7 @@ export const countries = [
     {
       id: 'RUS',
       name: 'Russia',
-      flag: '🇷🇺',
+      flag: 'https://flagcdn.com/w320/ru.png',
       continent: 'Europe',
       capital: 'Moscow',
       subregion: 'Eastern Europe',
@@ -152,7 +152,7 @@ export const countries = [
     {
       id: 'ZAF',
       name: 'South Africa',
-      flag: '🇿🇦',
+      flag: 'https://flagcdn.com/w320/za.png',
       continent: 'Africa',
       capital: 'Pretoria',
       subregion: 'Southern Africa',
@@ -163,7 +163,7 @@ export const countries = [
       id: 'NGA',
       name: 'Nigeria',
       flag: '🇳🇬',
-      continent: 'Africa',
+      continent: 'https://flagcdn.com/w320/ng.pngAfrica',
       capital: 'Abuja',
       subregion: 'Western Africa',
       area: 923768,
@@ -172,7 +172,7 @@ export const countries = [
     {
       id: 'EGY',
       name: 'Egypt',
-      flag: '🇪🇬',
+      flag: 'https://flagcdn.com/w320/eg.png',
       continent: 'Africa',
       capital: 'Cairo',
       subregion: 'Northern Africa',
@@ -182,7 +182,7 @@ export const countries = [
     {
       id: 'SAU',
       name: 'Saudi Arabia',
-      flag: '🇸🇦',
+      flag: 'https://flagcdn.com/w320/sa.png',
       continent: 'Asia',
       capital: 'Riyadh',
       subregion: 'Western Asia',
@@ -192,7 +192,7 @@ export const countries = [
     {
       id: 'KOR',
       name: 'South Korea',
-      flag: '🇰🇷',
+      flag: 'https://flagcdn.com/w320/kr.png',
       continent: 'Asia',
       capital: 'Seoul',
       subregion: 'Eastern Asia',

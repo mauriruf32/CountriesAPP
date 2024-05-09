@@ -28,12 +28,12 @@ export function getCountries(){
 
 export function getCountryById(id){
     return async function (dispatch) {
-        const response = await axios.get(
-            `${URL}/countries/${id}`
-        );
+        // const response = await axios.get(
+        //     `${URL}/countries/${id}`
+        // );
          dispatch({
             type: "GET_COUNTRY_BY_ID", 
-            payload: response.data
+            payload: countries
         });
     };
 }
