@@ -200,3 +200,41 @@ export const countries = [
       population: 51780579
     }
   ];
+
+  export const activities = [
+    {
+      name: 'Hiking',
+      difficulty: '3',
+      duration: '4 hours',
+      season: 'Summer',
+      countries: ['USA', 'Canada']
+    },
+    {
+      name: 'Skiing',
+      difficulty: '4',
+      duration: 'Full day',
+      season: 'Winter',
+      countries: ['Canada', 'Switzerland']
+    },
+    {
+      name: 'Surfing',
+      difficulty: '2',
+      duration: '2 hours',
+      season: 'Summer',
+      countries: ['Australia', 'USA']
+    },
+    {
+      name: 'Mountain Biking',
+      difficulty: '4',
+      duration: 'Half day',
+      season: 'Spring',
+      countries: ['USA', 'Canada']
+    },
+    {
+      name: 'Sightseeing',
+      difficulty: '1',
+      duration: 'Flexible',
+      season: 'Autum',
+      countries: ['France', 'Italy', 'Spain']
+    }
+  ];

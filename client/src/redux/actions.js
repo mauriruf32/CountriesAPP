@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { countries } from "../utils/dummyData";
+import { countries, activities } from "../utils/dummyData";
 
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_COUNTRY_BY_ID = "GET_COUNTRY_BY_ID";
@@ -52,12 +52,12 @@ export function getCountryByName(name){
 
 export function getActivities(){
     return async function (dispatch){
-        const response = await axios.get(
-            `${URL}/activities`
-        );
+        // const response = await axios.get(
+        //     `${URL}/activities`
+        // );
         return dispatch({
             type: "GET_ACTIVITIES",
-            payload: response.data
+            payload: activities
         });
     };
 }
