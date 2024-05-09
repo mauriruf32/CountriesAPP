@@ -2,7 +2,7 @@ export const countries = [
     {
       id: 'USA',
       name: 'United States',
-      flag: '🇺🇸',
+      flag: 'https://mainfacts.com/media/images/coats_of_arms/ke.png',
       continent: 'North America',
       capital: 'Washington, D.C.',
       subregion: 'Northern America',
