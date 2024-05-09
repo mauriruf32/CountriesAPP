@@ -1,6 +1,8 @@
 import axios from "axios";
 
 import { countries, activities } from "../utils/dummyData";
+import { countries as dummyCountries } from "../utils/dummyData";
+
 
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_COUNTRY_BY_ID = "GET_COUNTRY_BY_ID";
@@ -38,17 +40,34 @@ export function getCountryById(id){
     };
 }
 
-export function getCountryByName(name){
-    return async function (dispatch){
-        const response = await axios.get(
-            `${URL}/countries/?name=${name}`
-        );
-         dispatch({
-            type: "GET_COUNTRY_BY_NAME",
-            payload: response.data
-        });
-    };
+// export function getCountryByName(name){
+//     return async function (dispatch){
+//         const response = await axios.get(
+//             `${URL}/countries/?name=${name}`
+//         );
+//          dispatch({
+//             type: "GET_COUNTRY_BY_NAME",
+//             payload: response.data
+//         });
+//     };
+// }
+
+
+export function getCountryByName(name) {
+  return function (dispatch) {
+    // Filtrar los países por nombre
+    const foundCountries = dummyCountries.filter(country =>
+      country.name.toLowerCase().includes(name.toLowerCase())
+    );
+
+    // Enviar los países encontrados al reducer
+    dispatch({
+      type: "GET_COUNTRY_BY_NAME",
+      payload: foundCountries
+    });
+  };
 }
+
 
 export function getActivities(){
     return async function (dispatch){

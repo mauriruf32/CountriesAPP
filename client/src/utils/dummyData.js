@@ -162,8 +162,8 @@ export const countries = [
     {
       id: 'NGA',
       name: 'Nigeria',
-      flag: '🇳🇬',
-      continent: 'https://flagcdn.com/w320/ng.pngAfrica',
+      flag: 'https://flagcdn.com/w320/ng.png',
+      continent: 'Africa',
       capital: 'Abuja',
       subregion: 'Western Africa',
       area: 923768,
